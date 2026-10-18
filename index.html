@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EWU — European Welding Union</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#0b1220;--card:#111a2e;--c2:#16223b;--bd:#243452;--tx:#e8eefb;--mut:#8fa0c0;--blue:#2f7bff;--b2:#5aa0ff;--cy:#00e5ff;--al:#ff5a3c;--al2:#ffb020}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#eef3fb;--card:#fff;--c2:#f1f5fc;--bd:#d3deee;--tx:#0d1730;--mut:#52628a}}
+:root[data-theme="light"]{--bg:#eef3fb;--card:#fff;--c2:#f1f5fc;--bd:#d3deee;--tx:#0d1730;--mut:#52628a}
+*,*::before,*::after{box-sizing:inherit}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.6 Inter,system-ui,sans-serif}
+h1,h2,h3,.fx{font-family:"Space Grotesk",Inter,sans-serif;margin:0}
+.w{max-width:1080px;margin:0 auto;padding:0 20px}section{padding:64px 0}
+h2{font-size:clamp(1.7rem,4vw,2.5rem);text-align:center;margin-bottom:32px}
+header{position:fixed;inset:0 0 auto;z-index:30;background:rgba(5,9,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid #16264a;padding-top:env(safe-area-inset-top,0px);color:#e8eefb}
+header .w{display:flex;align-items:center;justify-content:space-between;gap:10px;height:62px;max-width:1280px}
+header a{color:#b9c8e6;text-decoration:none;font-weight:600;font-size:.9rem}.lg{display:flex;gap:6px;align-items:center}
+.lg button,.th{border:1px solid #243452;background:#0c1630;color:#9fb0d0;border-radius:99px;padding:8px 14px;font:600 .85rem Inter;cursor:pointer;min-height:40px}
+.lg button.on{background:var(--cy);color:#001018;border-color:var(--cy);box-shadow:0 0 16px #00e5ff88}
+.brand{font:700 1.2rem "Space Grotesk";color:#fff}.brand i{font-style:normal;color:#8fa0c0;font-weight:500;font-size:.85rem}
+.hero{position:relative;overflow:hidden;color:#fff;text-align:center;padding:96px 0 70px;background:radial-gradient(ellipse at 50% 20%,#14306b 0,#070d1f 60%),#070d1f}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(#2f7bff12 1px,transparent 1px),linear-gradient(90deg,#2f7bff12 1px,transparent 1px);background-size:46px 46px;mask:radial-gradient(circle at 50% 30%,#000,transparent 70%)}
+.hero .w{position:relative}
+.em{position:relative;width:min(560px,100%);aspect-ratio:1;margin:0 auto -60px}
+.em svg{position:absolute;left:19.6%;top:19.6%;width:60.7%;filter:drop-shadow(0 0 40px #2f7bff55)}.em canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#gl{position:absolute;left:55%;top:48%;width:34%;aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(#6fd0ff99,transparent 65%);pointer-events:none}
+.rot{transform-origin:170px 170px;animation:rt 9s linear infinite}@keyframes rt{to{transform:rotate(360deg)}}
+.st{animation:tw 2s ease-in-out infinite alternate}@keyframes tw{from{opacity:.3}to{opacity:1}}
+h1{font-size:clamp(2rem,6vw,4rem);line-height:1.08;background:linear-gradient(90deg,#fff,#b8e6ff 40%,var(--cy));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;max-width:900px;margin:0 auto 16px}
+.sub{max-width:660px;margin:0 auto;color:#bcd0f0;font-size:1.1rem}
+.tog{display:inline-flex;background:#ffffff14;border-radius:99px;padding:4px;margin:26px 0 8px;border:1px solid #243452}
+.tog button{background:none;border:0;color:#cfe0ff;padding:11px 22px;border-radius:99px;font:600 .95rem Inter;cursor:pointer}.tog button.on{background:linear-gradient(135deg,var(--b2),var(--blue));color:#fff;box-shadow:0 6px 20px #2f7bff66}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:12px;border:0;font:700 1rem Inter;color:#fff;text-decoration:none;cursor:pointer;min-height:48px;background:linear-gradient(180deg,var(--b2),var(--blue));box-shadow:0 8px 24px #2f7bff66;transition:.2s}
+.btn:hover{transform:translateY(-2px)}.btn.wa{background:linear-gradient(180deg,#31d36b,#128c4a);box-shadow:0 8px 24px #25d36655}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:42px}
+.stat{background:#ffffff0d;border:1px solid #243452;border-radius:14px;padding:14px;backdrop-filter:blur(6px)}.stat b{display:block;font:700 2rem "Space Grotesk";color:var(--cy)}.stat span{font-size:.85rem;color:#9fb0d0}
+[data-seg="w"] .e,[data-seg="e"] .wk{display:none!important}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:linear-gradient(180deg,var(--card),var(--c2));border:1px solid var(--bd);border-radius:16px;padding:22px;transition:.3s}.card:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:0 16px 40px #2f7bff33}
+.card h3{margin-bottom:6px}.card p{margin:0;color:var(--mut)}.mut{color:var(--mut)}
+.rates{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}.rates span{background:var(--card);border:1px solid var(--bd);border-radius:99px;padding:8px 16px;font-weight:600}
+.pr b{font:700 2.4rem "Space Grotesk";background:linear-gradient(90deg,var(--b2),var(--cy));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.gu{margin-top:18px;border:1px dashed var(--al2);border-radius:16px;padding:20px;text-align:center}
+.calc{max-width:640px;margin:0 auto;background:linear-gradient(180deg,var(--card),var(--bg));border:1px solid var(--bd);border-radius:16px;overflow:hidden;box-shadow:0 20px 50px #0006;border-top:4px solid var(--blue)}
+.calc>div{padding:20px 28px}.calc h3{font-size:1.4rem}.fl{margin-bottom:20px}.ft{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.ft label{font-weight:600;font-size:.9rem}
+.fi{display:flex;align-items:center;background:var(--c2);border:1px solid var(--bd);border-radius:8px;padding:4px 10px;min-width:112px}.fi:focus-within{border-color:var(--blue)}
+.fi input{width:64px;background:none;border:0;outline:0;color:var(--tx);font:700 1rem Inter;text-align:right;min-height:0;padding:0;-moz-appearance:textfield}.fi input::-webkit-inner-spin-button{-webkit-appearance:none}.fi span{color:var(--mut);font-size:.8rem;margin-left:6px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:linear-gradient(to right,var(--blue) var(--p,0%),var(--bd) var(--p,0%));outline:0;cursor:pointer;padding:0;min-height:0;border:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#fff;border:4px solid var(--blue);box-shadow:0 2px 8px #2f7bff80}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:4px solid var(--blue)}
+.res{margin:0 28px;padding:20px;text-align:center;background:radial-gradient(circle at 50% 0,#ff5a3c2e,transparent 70%),var(--c2);border:1px solid #ff5a3c73;border-radius:14px}
+.res small{text-transform:uppercase;letter-spacing:.08em;color:var(--mut);font-size:.75rem}
+.rv{font:700 clamp(2rem,9vw,3.2rem) "Space Grotesk";line-height:1.1;background:linear-gradient(90deg,var(--al),var(--al2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-variant-numeric:tabular-nums}
+.calc .cc{text-align:center}.calc .cc h3{font-size:1.15rem;margin-bottom:14px}
+.step{counter-increment:s;position:relative;padding-left:56px;font-weight:600}.step::before{content:counter(s);position:absolute;left:0;top:-4px;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--b2),var(--blue));display:grid;place-items:center;font:700 1.2rem "Space Grotesk";color:#fff}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px}
+form{display:grid;gap:12px;max-width:480px;margin:0 auto}
+input,select{width:100%;padding:14px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit;min-height:48px}
+.chk{display:flex;gap:10px;font-size:.85rem;color:var(--mut);align-items:center}.chk input{width:20px;min-height:20px}
+#ok{display:none;text-align:center;max-width:480px;margin:0 auto;padding:20px;border-radius:14px;background:#0f3b2a;color:#fff}
+footer{padding:28px 0 120px;text-align:center;color:var(--mut);font-size:.8rem;border-top:1px solid var(--bd)}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;display:grid;gap:12px}
+.fab button,.fab a{width:58px;height:58px;border-radius:50%;border:0;display:grid;place-items:center;font-size:1.6rem;color:#fff;cursor:pointer;text-decoration:none;box-shadow:0 8px 24px #0008}
+.fab a{background:#25d366}.fab button{background:linear-gradient(135deg,var(--b2),var(--blue));animation:pl 2.4s infinite}@keyframes pl{70%{box-shadow:0 0 0 16px #2f7bff00}0%{box-shadow:0 0 0 0 #2f7bffaa}}
+#chat{position:fixed;right:16px;bottom:calc(150px + env(safe-area-inset-bottom,0px));z-index:40;width:min(360px,calc(100vw - 32px));height:min(440px,60vh);background:var(--card);border:1px solid var(--bd);border-radius:16px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px #000a}
+#chat header{position:static;padding:0;height:auto}.ch{padding:14px 16px;background:linear-gradient(135deg,var(--blue),#1a4fb8);color:#fff;font-weight:700}
+#ms{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:8px}.m{max-width:85%;padding:10px 14px;border-radius:14px;background:var(--c2);font-size:.92rem}.m.u{align-self:flex-end;background:var(--blue);color:#fff}
+.m a{color:#fff;background:#25d366;padding:8px 14px;border-radius:8px;display:inline-block;margin-top:8px;text-decoration:none;font-weight:600}
+#cf2{display:flex;gap:8px;padding:10px;border-top:1px solid var(--bd)}#cf2 button{border:0;background:var(--blue);color:#fff;border-radius:10px;padding:0 16px;font-weight:700}
+.r{opacity:0;transform:translateY(28px);transition:.7s}.r.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none}.rot,.gr,.sm,.nd,.fo,.hero::after,.fab button{animation:none}}
+@media(max-width:640px){.brand i,header a{display:none}.calc>div{padding:16px 18px}.res{margin:0 18px}}
+.hero .w{z-index:1}.hero::after{content:"";position:absolute;left:50%;top:30%;width:900px;max-width:140%;aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(#2f7bff38,transparent 60%);animation:ps 6s ease-in-out infinite;pointer-events:none}@keyframes ps{50%{transform:translate(-50%,-50%) scale(1.25);opacity:.5}}
+.fo{position:absolute;border-radius:50%;box-shadow:0 0 14px 4px #2f7bffaa;animation:fo var(--d) ease-in-out infinite alternate;pointer-events:none}@keyframes fo{0%{transform:translate(0,0);opacity:.1}50%{opacity:.85}100%{transform:translate(var(--x),var(--y));opacity:.15}}
+.gr{transform-box:fill-box;transform-origin:center;animation:rt 8s linear infinite}.gr.r2{animation-direction:reverse;animation-duration:5s}
+.sm{transform-box:fill-box;transform-origin:center;opacity:0;animation:sm 3s ease-out infinite}@keyframes sm{0%{transform:translate(0,0) scale(.6);opacity:.7}100%{transform:translate(-8px,-34px) scale(2.4);opacity:0}}
+.nd{transform-origin:136px 186px;animation:nd 1.4s ease-in-out infinite alternate}@keyframes nd{from{transform:rotate(-35deg)}to{transform:rotate(30deg)}}
+#lens,#rim{transition:none}
+details{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 18px;margin-bottom:10px}summary{cursor:pointer;font-weight:600}details p{color:var(--mut);margin:10px 0 0}
+</style>
+</head>
+<body data-seg="w">
+<header><div class="w">
+<a href="https://www.kompasmigracji.com/pl">← Kompas Migracji</a>
+<div class="brand">EWU <i>| European Welding Union</i></div>
+<div class="lg"><span id="lg" class="lg"></span><button class="th" id="th" aria-label="theme">☀</button></div>
+</div></header>
+
+<div class="hero"><div class="w">
+<div class="em">
+<svg viewBox="0 0 340 340" aria-label="EWU">
+<defs>
+<linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9fb4d0"/><stop offset=".5" stop-color="#4b5f80"/><stop offset="1" stop-color="#b9cbe6"/></linearGradient>
+<linearGradient id="tx" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#c7d4e6"/><stop offset="1" stop-color="#6c84a8"/></linearGradient>
+<linearGradient id="br" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2a850"/><stop offset=".5" stop-color="#9a5f22"/><stop offset="1" stop-color="#3d2510"/></linearGradient>
+<linearGradient id="ir" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#46301a"/><stop offset="1" stop-color="#120b05"/></linearGradient>
+<radialGradient id="in" cx=".6" cy=".5" r=".8"><stop offset="0" stop-color="#0b1c3a"/><stop offset="1" stop-color="#03060e"/></radialGradient>
+</defs>
+<circle cx="170" cy="170" r="150" fill="url(#in)" stroke="url(#sg)" stroke-width="8"/>
+<circle class="rot" cx="170" cy="170" r="156" fill="none" stroke="#00e5ff" stroke-width="3" stroke-dasharray="26 450" stroke-linecap="round"/>
+<g id="rb" stroke-linejoin="round">
+<rect x="96" y="36" width="12" height="30" rx="3" fill="url(#br)" stroke="#2b1b0c" stroke-width="1.5"/><rect x="93" y="32" width="18" height="6" rx="2" fill="#c98a3a" stroke="#2b1b0c"/>
+<g fill="#cfe3ff"><circle class="sm" cx="102" cy="28" r="5"/><circle class="sm" style="animation-delay:1s" cx="102" cy="28" r="5"/><circle class="sm" style="animation-delay:2s" cx="102" cy="28" r="5"/></g>
+<path d="M62 275 Q62 192 110 170 L158 170 Q198 182 208 232 L212 275Z" fill="url(#ir)" stroke="#8a5a22" stroke-width="2.5"/>
+<path d="M80 252 Q82 204 116 184 M192 194 Q206 212 207 250" fill="none" stroke="#c98a3a" stroke-width="1.5" opacity=".5"/>
+<rect x="116" y="138" width="36" height="28" rx="4" fill="#2a1a0c" stroke="#9a6322" stroke-width="2"/><path d="M116 146h36M116 154h36M116 162h36" stroke="#9a6322" stroke-width="2"/>
+<rect x="88" y="62" width="92" height="80" rx="18" fill="url(#br)" stroke="#3b2410" stroke-width="2.5"/>
+<path d="M96 126 H172 M108 132h48M108 137h48" stroke="#2b1b0c" stroke-width="2.5"/>
+<circle cx="122" cy="100" r="13" fill="#1b1209" stroke="url(#br)" stroke-width="5"/><circle cx="122" cy="100" r="8" fill="#0a1f44"/>
+<circle cx="158" cy="98" r="22" fill="#1b1209" stroke="url(#br)" stroke-width="5"/><circle id="lens" cx="158" cy="98" r="16" fill="#0d2a5a"/><path d="M148 90a12 12 0 0 1 12-5" stroke="#9fd8ff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<g fill="#f0c07a"><circle cx="97" cy="71" r="2.5"/><circle cx="171" cy="71" r="2.5"/><circle cx="97" cy="134" r="2.5"/><circle cx="171" cy="134" r="2.5"/></g>
+<path id="rim" d="M181 78 Q186 100 181 128" stroke="#ffd9a0" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<circle cx="136" cy="186" r="9" fill="#1a1008" stroke="url(#br)" stroke-width="2.5"/><line class="nd" x1="136" y1="186" x2="136" y2="179" stroke="#ff5a3c" stroke-width="1.6"/>
+<path d="M150 198 L200 176" stroke="#2b1b0c" stroke-width="23" stroke-linecap="round"/><path d="M150 198 L200 176" stroke="url(#br)" stroke-width="16" stroke-linecap="round"/>
+<path d="M174 187v-11M186 182v-11" stroke="#2b1b0c" stroke-width="2"/>
+<path d="M190 181 L206 171" stroke="#e0a85a" stroke-width="7" stroke-linecap="round"/><path d="M92 250 Q60 215 110 190" fill="none" stroke="#3a2a18" stroke-width="5"/></g>
+<rect x="205" y="208" width="100" height="9" fill="#14233b" stroke="#6c84a8"/><g id="gz"></g>
+<text x="170" y="262" text-anchor="middle" font-size="94" font-weight="800" font-family="Space Grotesk,Inter,Arial" fill="url(#tx)" stroke="#2f7bff" stroke-width="1" style="filter:drop-shadow(0 0 8px #2f7bff)">EWU</text>
+<text x="170" y="292" text-anchor="middle" font-size="8" letter-spacing="3" fill="#35568c">EUROPEAN WELDING UNION</text>
+</svg>
+<div id="gl"></div><canvas id="arc" width="560" height="560"></canvas>
+</div>
+<h1 class="wk" data-i="h1w"></h1><h1 class="e" data-i="h1e"></h1>
+<p class="sub wk" data-i="subw"></p><p class="sub e" data-i="sube"></p>
+<div class="tog"><button class="on" data-s="w" data-i="seg_w"></button><button data-s="e" data-i="seg_e"></button></div>
+<div class="cta"><a class="btn" href="#form" data-i="cta"></a><a class="btn wa" id="wa1" target="_blank" rel="noopener">💬 <span data-i="wa"></span></a></div>
+<div class="stats">
+<div class="stat"><b data-n="40" data-x="K+">0</b><span></span></div><div class="stat"><b data-n="100" data-x="%">0</b><span></span></div>
+<div class="stat"><b data-n="24" data-x="">0</b><span></span></div><div class="stat"><b data-n="30" data-x="">0</b><span></span></div>
+</div></div></div>
+
+<section class="wk"><div class="w"><h2 class="r" data-i="tb"></h2><div class="g" id="wb"></div>
+<div class="rates r"><span>🇵🇱 40–45 zł/h</span><span>🇵🇱 55–85 zł/h PRO</span><span>🇩🇪 ≈23 €/h</span><span>🇧🇪 21–45 €/h</span><span>🇳🇱 ≈34 €/h</span><span>🇫🇷 ≈19 €/h</span></div></div></section>
+
+<section class="e"><div class="w"><h2 class="r" data-i="te"></h2><div class="g" id="eb" style="margin-bottom:56px"></div><div class="calc r">
+<div><h3 data-i="ct"></h3><p class="mut" style="margin:4px 0 0" data-i="cs"></p></div>
+<div id="cf"></div>
+<div class="res"><small data-i="rl"></small><div class="rv" id="tot">0 PLN</div><div class="mut" style="font-size:.85rem"><b id="wk" style="color:var(--tx)"></b> · <span id="sm"></span></div></div>
+<div class="cc"><h3 data-i="ch"></h3><a class="btn" href="#form" data-i="cb"></a><p class="mut" style="font-size:.75rem;margin:10px 0 0" data-i="cn"></p></div>
+</div></div></section>
+
+<section class="e" style="padding-top:0"><div class="w"><h2 class="r" data-i="tp"></h2><div class="g" id="pc"></div><div class="gu r" data-i="gu"></div></div></section>
+
+<section><div class="w"><h2 class="r" data-i="ts"></h2><div class="steps r" id="sp"></div></div></section>
+
+<section style="background:var(--c2)"><div class="w"><h2 class="r" data-i="tr"></h2><div class="g"><div class="card r" style="border-style:dashed"><p>★★★★★<br><span data-i="tph"></span></p></div><div class="card r" style="border-style:dashed"><p>🎥<br><span data-i="tph"></span></p></div><div class="card r" style="border-style:dashed"><p>🏭<br><span data-i="tph"></span></p></div></div></div></section>
+<section><div class="w" style="max-width:760px"><h2 class="r" data-i="tq"></h2><div id="fq"></div></div></section>
+<section id="form"><div class="w"><h2 class="r" data-i="tf"></h2>
+<form id="f"><input required id="fn" data-p="fn"><input required id="fp" data-p="fp"><input class="e" id="fc" data-p="fc"><input id="fd" data-p="fdw">
+<label class="chk"><input required type="checkbox"><span data-i="cons"></span></label><button class="btn" style="justify-content:center" data-i="fs"></button></form>
+<div id="ok"><b data-i="fok"></b><br><a class="btn wa" id="wa2" target="_blank" rel="noopener" style="margin-top:12px">💬 WhatsApp</a></div></div></section>
+
+<footer><div class="w">© 2026 European Welding Union · Partner of «Kompas Migracji» · DOMUS V Sp. z o.o. · KRS 0001198474 · NIP 5223350030 · KRAZ: [—]</div></footer>
+
+<div class="fab"><a id="wa3" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a><button id="cb" aria-label="chat">🤖</button></div>
+<div id="chat"><div class="ch" data-i="cht"></div><div id="ms"></div><div id="cf2"><input id="ci" data-p="ph"><button id="cs2">➤</button></div></div>
+
+<script>
+const CFG={wa:'48000000000',crm:''};/* wa: номер без «+»; crm: URL вебхука CRM (Make/Zapier/Bitrix24/amoCRM) */
+const T={
+uk:{seg_w:'Я зварювальник',seg_e:'Я роботодавець',cta:'Подати заявку',wa:'Написати у WhatsApp',h1w:'Робота зварювальником у ЄС — легально, з житлом',subw:'Договір до виїзду, страхування для сім’ї, житло і координатор на місці. Відповідь за 24 години.',h1e:'Зварювальники на об’єкті за 7–14 днів',sube:'Перевірені фахівці MIG, MAG, TIG, MMA з документами. Рахунок після 3 днів роботи, гарантія заміни 30 днів.',sl:['аудиторія','офіційні контракти','годин на відповідь','днів гарантії'],tb:'Що ви отримуєте',wb:[['Договір до виїзду','UoP або UoZ, ZUS і медстрахування'],['Житло готове','Проживання організуємо ми'],['Захист сім’ї','Медичне та правове страхування'],['Координатор','Перекладає і вирішує питання на об’єкті']],ts:'Як це працює',st:['Заявка','Дзвінок за 24 год','Підбір 3–14 днів','Договір і старт'],tp:'Прозорі умови',pc:['1-й працівник','2-й працівник','3-й і далі'],gu:'Гарантія 30 днів: якщо працівник піде або не пройде випробування — одноразова безкоштовна заміна. Рахунок після 3 днів роботи, оплата 7 днів.',ct:'Скільки вам коштує нестача зварювальників?',cs:'Вкажіть параметри проєкту і дізнайтесь вартість простою.',l1:'Скільки зварювальників бракує',l2:'Добовий збиток від простою на 1 працівника',l3:'Орієнтовна затримка проєкту',u1:'осіб',u3:'тиж.',rl:'Загальні збитки від простою',cw:'на тиждень',cn:'Розрахунок для 5 робочих днів на тиждень.',ch:'Стільки ви втрачаєте щотижня. Закрийте вакансії за 7 днів.',cb:'Закрити вакансії →',tf:'Залиште заявку',fn:'Ім’я',fp:'Телефон / Telegram',fdw:'Метод зварювання (MIG, TIG…)',fde:'Скільки людей і які методи?',fs:'Надіслати',fok:'Дякуємо! Координатор зв’яжеться протягом 24 год.',cons:'Погоджуюсь на обробку даних (RODO)',cht:'Чат-помічник',cg:'Привіт! Допоможу залишити заявку за хвилину. Як вас звати?',cq2:'Ваш телефон або Telegram?',cq3w:'Який метод зварювання і яка країна цікавлять?',cq3e:'Скільки зварювальників і яких методів потрібно?',cdone:'Готово! Заявку передано координатору. Можна також написати у WhatsApp:',ph:'Ваша відповідь…',te:'Чому роботодавці обирають EWU',eb:[['Сертифіковані фахівці','MIG, MAG, TIG, MMA з підтвердженою кваліфікацією'],['Документи готові','Паспорт, медичний висновок і диплом — без бюрократії'],['Повна адміністрація','Делегування, проживання та податки беремо на себе'],['Координатор на об’єкті','Менше простоїв і непорозумінь'],['Гарантія заміни','30 днів, одноразово безкоштовно'],['Швидкий старт','Перша група за 7–14 днів']],tq:'Часті питання',wq:[['Які документи потрібні?','Паспорт, диплом або свідоцтво зварювальника, медична довідка. Підтвердження класу та сертифікацію організовує EWU.'],['Чи офіційне працевлаштування?','Так: UoP або UoZ із ZUS та медстрахуванням. Підтвердження надає координатор до підпису договору.'],['Скільки заробляє зварювальник?','Польща 40–45 zł/год (сильні фахівці й JDG 55–85 zł/год), Німеччина ≈23 €/год, Бельгія 21–45 €/год, Нідерланди ≈34 €/год, Франція ≈19 €/год.'],['Як швидко знайдете роботу?','Координатор зв’яжеться протягом 24 годин, підбір займає 3–14 робочих днів.'],['Чи потрібна польська?','Ні, на кожному об’єкті є координатор-перекладач.']],eq:[['Як швидко отримаємо бригаду?','Координатор зв’яжеться протягом дня. Перша група може приїхати за 7–14 днів.'],['Коли і скільки платити?','Рахунок після 3 днів роботи, оплата 7 днів. 1-й і 2-й працівник по 2 500 zł netto, 3-й і далі по 5 000 zł netto.'],['Що входить у гарантію?','30 днів: якщо працівник сам піде або не пройде випробування, одноразово даємо безкоштовну заміну.'],['Чи є знижки?','Можливі при комплексній обробці комплекту персоналу.']],tr:'Відгуки та кейси',tph:'Додайте реальний відгук або кейс (фото, ім’я, країна)',fc:'Компанія'},
+ru:{seg_w:'Я сварщик',seg_e:'Я работодатель',cta:'Подать заявку',wa:'Написать в WhatsApp',h1w:'Работа сварщиком в ЕС — легально, с жильём',subw:'Договор до выезда, страховка для семьи, жильё и координатор на месте. Ответ за 24 часа.',sl:['аудитория','официальные контракты','часов на ответ','дней гарантии'],tb:'Что вы получаете',wb:[['Договор до выезда','UoP или UoZ, ZUS и медстраховка'],['Жильё готово','Проживание организуем мы'],['Защита семьи','Медицинская и правовая страховка'],['Координатор','Переводит и решает вопросы на объекте']],ts:'Как это работает',st:['Заявка','Звонок за 24 ч','Подбор 3–14 дней','Договор и старт'],tf:'Оставьте заявку',fn:'Имя',fp:'Телефон / Telegram',fdw:'Метод сварки (MIG, TIG…)',fs:'Отправить',fok:'Спасибо! Координатор свяжется в течение 24 ч.',cons:'Согласен на обработку данных (RODO)',cht:'Чат-помощник',cg:'Привет! Помогу оставить заявку за минуту. Как вас зовут?',cq2:'Ваш телефон или Telegram?',cq3w:'Какой метод сварки и какая страна интересуют?',cdone:'Готово! Заявка передана координатору. Можно также написать в WhatsApp:',ph:'Ваш ответ…',tq:'Частые вопросы',wq:[['Какие документы нужны?','Паспорт, диплом или свидетельство сварщика, медицинская справка. Подтверждение класса и сертификацию организует EWU.'],['Официальное ли трудоустройство?','Да: UoP или UoZ с ZUS и медстраховкой. Подтверждение даёт координатор до подписания договора.'],['Сколько зарабатывает сварщик?','Польша 40–45 zł/ч (сильные специалисты и JDG 55–85 zł/ч), Германия ≈23 €/ч, Бельгия 21–45 €/ч, Нидерланды ≈34 €/ч, Франция ≈19 €/ч.'],['Как быстро найдёте работу?','Координатор свяжется в течение 24 часов, подбор занимает 3–14 рабочих дней.'],['Нужен ли польский?','Нет, на каждом объекте есть координатор-переводчик.']],tr:'Отзывы и кейсы',tph:'Добавьте реальный отзыв или кейс (фото, имя, страна)'},
+pl:{seg_w:'Jestem spawaczem',seg_e:'Jestem pracodawcą',cta:'Wyślij zapytanie',wa:'Napisz na WhatsApp',h1e:'Spawacze na obiekcie w 7–14 dni',sube:'Sprawdzeni fachowcy MIG, MAG, TIG, MMA z dokumentami. Faktura po 3 dniach pracy, 30 dni gwarancji wymiany.',sl:['odbiorców','oficjalne kontrakty','godzin na odpowiedź','dni gwarancji'],ts:'Jak to działa',st:['Zapytanie','Telefon w 24 h','Dobór 3–14 dni','Umowa i start'],tp:'Przejrzyste warunki',pc:['1. pracownik','2. pracownik','3. i kolejny'],gu:'Gwarancja 30 dni: jeśli pracownik odejdzie lub nie przejdzie okresu próbnego — jednorazowa bezpłatna wymiana. Faktura po 3 dniach pracy, płatność 7 dni.',ct:'Ile Cię kosztuje brak spawaczy?',cs:'Ustaw parametry projektu i sprawdź koszt przestoju.',l1:'Liczba brakujących spawaczy',l2:'Dzienny koszt przestoju na 1 pracownika',l3:'Szacowany czas opóźnienia',u1:'os.',u3:'tyg.',rl:'Łączna strata z powodu przestoju',cw:'tygodniowo',cn:'Przy założeniu 5 dni roboczych w tygodniu.',ch:'Tyle tracisz co tydzień. Zamknij wakaty w 7 dni.',cb:'Zamknij wakaty →',tf:'Zostaw zgłoszenie',fn:'Imię',fp:'Telefon / Telegram',fde:'Ilu ludzi i jakie metody?',fs:'Wyślij',fok:'Dziękujemy! Koordynator odezwie się w 24 h.',cons:'Zgoda na przetwarzanie danych (RODO)',cht:'Czat-asystent',cg:'Cześć! Pomogę złożyć zapytanie w minutę. Jak masz na imię?',cq2:'Twój telefon lub Telegram?',cq3e:'Ilu spawaczy i jakich metod potrzebujesz?',cdone:'Gotowe! Zgłoszenie trafiło do koordynatora. Możesz też napisać na WhatsApp:',ph:'Twoja odpowiedź…',te:'Dlaczego pracodawcy wybierają EWU',eb:[['Certyfikowani fachowcy','MIG, MAG, TIG, MMA z potwierdzonymi kwalifikacjami'],['Dokumenty gotowe','Paszport, orzeczenie lekarskie i dyplom — zero biurokracji'],['Pełna administracja','Delegacje, zakwaterowanie i podatki bierzemy na siebie'],['Koordynator na obiekcie','Mniej przestojów i nieporozumień'],['Gwarancja wymiany','30 dni, jednorazowo bezpłatnie'],['Szybki start','Pierwsza grupa w 7–14 dni']],tq:'Często zadawane pytania',eq:[['Jak szybko otrzymamy brygadę?','Koordynator kontaktuje się w ciągu dnia. Pierwsza grupa może przybyć po 7–14 dniach.'],['Kiedy i ile płacimy?','Faktura po 3 dniach pracy, płatność 7 dni. 1. i 2. pracownik po 2 500 zł netto, 3. i kolejny po 5 000 zł netto.'],['Co obejmuje gwarancja?','30 dni: jeśli pracownik sam odejdzie lub nie przejdzie okresu próbnego, jednorazowo zapewniamy bezpłatną wymianę.'],['Czy są rabaty?','Możliwe przy kompleksowej obsłudze kompletu personelu.']],tr:'Opinie i case studies',tph:'Dodaj prawdziwą opinię lub case (zdjęcie, imię, kraj)',fc:'Firma'},
+en:{seg_w:'I’m a welder',seg_e:'I’m an employer',cta:'Send request',wa:'Chat on WhatsApp',h1e:'Welders on site in 7–14 days',sube:'Vetted MIG, MAG, TIG, MMA specialists with full documents. Invoice after 3 days of work, 30-day replacement guarantee.',sl:['audience','official contracts','hours to reply','days guarantee'],ts:'How it works',st:['Request','Call within 24 h','Matching 3–14 days','Contract & start'],tp:'Transparent terms',pc:['1st worker','2nd worker','3rd and each next'],gu:'30-day guarantee: if a worker quits or fails probation — one free replacement. Invoice after 3 days of work, payment within 7 days.',ct:'How much does the welder shortage cost you?',cs:'Set project parameters to see the cost of downtime.',l1:'Missing welders',l2:'Daily downtime cost per worker',l3:'Estimated project delay',u1:'pers.',u3:'wks',rl:'Total downtime loss',cw:'per week',cn:'Based on 5 working days per week.',ch:'That’s what you lose every week. Fill vacancies in 7 days.',cb:'Fill vacancies →',tf:'Leave a request',fn:'Name',fp:'Phone / Telegram',fde:'How many people, which methods?',fs:'Send',fok:'Thank you! A coordinator will contact you within 24 h.',cons:'I consent to data processing (GDPR)',cht:'Chat assistant',cg:'Hi! I’ll help you submit a request in a minute. What’s your name?',cq2:'Your phone or Telegram?',cq3e:'How many welders and which methods do you need?',cdone:'Done! Your request went to a coordinator. You can also message us on WhatsApp:',ph:'Your answer…',te:'Why employers choose EWU',eb:[['Certified specialists','MIG, MAG, TIG, MMA with verified qualifications'],['Documents ready','Passport, medical certificate and diploma — zero red tape'],['Full administration','We handle secondments, housing and taxes'],['Coordinator on site','Fewer stoppages and misunderstandings'],['Replacement guarantee','30 days, one free replacement'],['Fast start','First group in 7–14 days']],tq:'FAQ',eq:[['How fast can we get a crew?','A coordinator contacts you within a day. The first group can arrive in 7–14 days.'],['When and how much do we pay?','Invoice after 3 days of work, payment within 7 days. 1st and 2nd worker 2,500 zł net each, 3rd onwards 5,000 zł net.'],['What does the guarantee cover?','30 days: if a worker quits or fails probation, we provide one free replacement.'],['Are there discounts?','Possible for a complete staffing package.']],tr:'Reviews & case studies',tph:'Add a real review or case (photo, name, country)',fc:'Company'}};
+const LS={w:['uk','ru'],e:['pl','uk','en']},LC={uk:'uk-UA',ru:'ru-RU',pl:'pl-PL',en:'en-GB'};
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+let seg='w',lang='uk';
+const t=k=>(T[lang]&&T[lang][k])||T.uk[k]||'';
+const fmt=n=>new Intl.NumberFormat(LC[lang],{maximumFractionDigits:0}).format(n);
+const wa=m=>'https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(m||'Hello EWU 👋');
+
+const F=[['workers',1,20,1,5,'u1'],['cost',1000,5000,100,2500,'PLN'],['weeks',1,8,1,4,'u3']];
+$('#cf').innerHTML=F.map((f,i)=>`<div class="fl"><div class="ft"><label data-i="l${i+1}"></label><div class="fi"><input type="number" id="${f[0]}n" min="${f[1]}" max="${f[2]}" step="${f[3]}" value="${f[4]}"><span ${f[5]=='PLN'?'':'data-i="'+f[5]+'"'}>${f[5]=='PLN'?'PLN':''}</span></div></div><input type="range" id="${f[0]}" min="${f[1]}" max="${f[2]}" step="${f[3]}" value="${f[4]}"></div>`).join('');
+let shown=0,raf;
+function calc(){const w=+$('#workers').value,c=+$('#cost').value,k=+$('#weeks').value,wk=w*c*5,tt=wk*k;
+ if(raf)cancelAnimationFrame(raf);const s0=shown,t0=performance.now();
+ (function st(n){const p=Math.min((n-t0)/350,1);shown=s0+(tt-s0)*(1-Math.pow(1-p,3));$('#tot').textContent=fmt(shown)+' PLN';if(p<1)raf=requestAnimationFrame(st)})(t0);
+ $('#wk').textContent=fmt(wk)+' PLN '+t('cw');$('#sm').textContent=w+' × '+fmt(c)+' PLN × 5 × '+k}
+F.forEach(f=>{const r=$('#'+f[0]),n=$('#'+f[0]+'n'),p=()=>r.style.setProperty('--p',(r.value-r.min)/(r.max-r.min)*100+'%');p();
+ r.oninput=()=>{n.value=r.value;p();calc()};
+ n.oninput=()=>{if(n.value==='')return;r.value=Math.min(+r.max,Math.max(+r.min,+n.value||+r.min));p();calc()};n.onblur=()=>n.value=r.value});
+
+function apply(){document.documentElement.lang=lang;document.body.dataset.seg=seg;
+ $$('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));$$('[data-p]').forEach(e=>e.placeholder=t(e.dataset.p==='fdw'?'fd'+(seg=='w'?'w':'e'):e.dataset.p));
+ $('#lg').innerHTML=LS[seg].map(l=>`<button class="${l==lang?'on':''}" data-l="${l}">${l.toUpperCase()}</button>`).join('');
+ $$('.tog button').forEach(b=>b.classList.toggle('on',b.dataset.s==seg));
+ $$('.stat span').forEach((e,i)=>e.textContent=t('sl')[i]);
+ $('#wb').innerHTML=(t('wb')||[]).map(b=>`<div class="card r in"><h3>${b[0]}</h3><p>${b[1]}</p></div>`).join('');
+ $('#pc').innerHTML=(t('pc')||[]).map((p,i)=>`<div class="card pr r in"><h3>${p}</h3><b>${['2 500','2 500','5 000'][i]} zł</b><p>netto</p></div>`).join('');
+ $('#eb').innerHTML=(t('eb')||[]).map(b=>`<div class="card r in"><h3>${b[0]}</h3><p>${b[1]}</p></div>`).join('');
+ $('#fq').innerHTML=(t(seg=='w'?'wq':'eq')||[]).map(q=>`<details><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join('');
+ $('#sp').innerHTML=t('st').map(s=>`<div class="step">${s}</div>`).join('');
+ ['#wa1','#wa2','#wa3'].forEach(s=>$(s).href=wa());calc()}
+function setSeg(s){seg=s;if(!LS[s].includes(lang))lang=LS[s][0];apply()}
+$$('.tog button').forEach(b=>b.onclick=()=>setSeg(b.dataset.s));
+$('#lg').onclick=e=>{if(e.target.dataset.l){lang=e.target.dataset.l;apply()}};
+$('#th').onclick=()=>{const d=document.documentElement,l=getComputedStyle(d).getPropertyValue('--bg').trim()=='#eef3fb';d.dataset.theme=l?'dark':'light'};
+
+function lead(d){d.seg=seg;d.lang=lang;d.page=location.href;d.ts=new Date().toISOString();
+ if(CFG.crm){try{fetch(CFG.crm,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(d)}).catch(()=>{})}catch(e){}}
+ return wa('EWU · '+(seg=='w'?'Welder':'Employer')+' · '+d.name+' · '+d.phone+' · '+d.detail)}
+$('#f').onsubmit=e=>{e.preventDefault();const u=lead({name:$('#fn').value,phone:$('#fp').value,detail:($('#fc').value?$('#fc').value+' · ':'')+$('#fd').value});$('#wa2').href=u;e.target.style.display='none';$('#ok').style.display='block'};
+
+let ci=-1,L={};const say=(m,u)=>{const d=document.createElement('div');d.className='m'+(u?' u':'');d.innerHTML=m;$('#ms').append(d);$('#ms').scrollTop=1e5};
+$('#cb').onclick=()=>{const c=$('#chat');c.style.display=c.style.display=='flex'?'none':'flex';if(ci<0){ci=0;say(t('cg'))}};
+function send(){const v=$('#ci').value.trim();if(!v||ci>2)return;$('#ci').value='';say(v.replace(/</g,'&lt;'),1);
+ if(ci==0){L.name=v;setTimeout(()=>say(t('cq2')),400)}
+ if(ci==1){L.phone=v;setTimeout(()=>say(t(seg=='w'?'cq3w':'cq3e')),400)}
+ if(ci==2){L.detail=v;const u=lead(L);setTimeout(()=>say(t('cdone')+'<br><a href="'+u+'" target="_blank" rel="noopener">💬 WhatsApp</a>'),400)}
+ ci++}
+$('#cs2').onclick=send;$('#ci').onkeydown=e=>{if(e.key=='Enter')send()};
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});$$('.r').forEach(e=>io.observe(e));
+$$('[data-n]').forEach(el=>{const n=+el.dataset.n;let i=0;const tm=setInterval(()=>{i=Math.min(n,i+Math.ceil(n/40));el.textContent=i+el.dataset.x;if(i>=n)clearInterval(tm)},30)});
+function gear(cx,cy,r,n,c){let q=[];for(let i=0;i<n*4;i++){const a=i/(n*4)*6.283,rr=(i%4<2)?r:r*.72;q.push((cx+Math.cos(a)*rr).toFixed(1)+','+(cy+Math.sin(a)*rr).toFixed(1))}return `<g class="gr ${c}"><polygon points="${q.join(' ')}" fill="url(#br)" stroke="#2b1b0c" stroke-width="1.5"/><circle cx="${cx}" cy="${cy}" r="${r*.3}" fill="#1a1008"/></g>`}
+$('#gz').innerHTML=gear(140,60,11,8,'')+gear(150,198,13,8,'r2')+gear(78,215,10,7,'');
+$$('.hero .fo').forEach(e=>e.remove());for(let i=0;i<16;i++){const o=document.createElement('i'),z=3+Math.random()*7;o.className='fo';o.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${z}px;height:${z}px;--d:${9+Math.random()*10}s;--x:${(Math.random()-.5)*160}px;--y:${(Math.random()-.5)*160}px;animation-delay:${-Math.random()*9}s;background:${['#7fd4ff','#5aa0ff','#ffd08a'][i%3]}`;$('.hero').prepend(o)}
+
+(function(){const cv=$('#arc'),x=cv.getContext('2d'),A=[314,282],B=[348,315],C=[280,280],lens=$('#lens'),rim=$('#rim'),gl=$('#gl'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ const O=[...Array(18)].map(()=>({a:Math.random()*6.28,r:Math.random()*135,s:(.0002+Math.random()*.0005)*(Math.random()<.5?-1:1),w:Math.random()*6.28,z:2+Math.random()*5,h:[200,185,35,215][Math.random()*4|0]}));
+ const S=[[45,118,38,.5,1],[-45,104,34,1.8,-1.3],[45,72,24,3,1.7],[-45,126,46,4.1,-.9],[45,92,52,5,1.1],[-45,62,20,2.2,1.9]];
+ let I=.7,sp=0;
+ const star=(px,py,r)=>{x.beginPath();for(let i=0;i<10;i++){const a=-1.5708+i*.6283,rr=i%2?r*.45:r;x.lineTo(px+Math.cos(a)*rr,py+Math.sin(a)*rr)}x.closePath();x.fill()};
+ const bolt=(j,w,c)=>{x.strokeStyle=c;x.lineWidth=w;x.beginPath();x.moveTo(A[0],A[1]);for(let i=1;i<9;i++){const k=i/9;x.lineTo(A[0]+(B[0]-A[0])*k+(Math.random()-.5)*j,A[1]+(B[1]-A[1])*k+(Math.random()-.5)*j)}x.lineTo(B[0],B[1]);x.stroke()};
+ function f(t){x.clearRect(0,0,560,560);x.globalCompositeOperation='lighter';x.lineJoin='round';
+  if(Math.random()<.09)sp=1;sp*=.82;I=Math.min(1.5,.4+Math.random()*.45+sp*.9);
+  x.save();x.beginPath();x.arc(C[0],C[1],146,0,6.283);x.clip();
+  let g=x.createRadialGradient(C[0],C[1],0,C[0],C[1],150);const pu=.5+.5*Math.sin(t/1300);g.addColorStop(0,'rgba(90,160,255,'+(.05+.12*pu)+')');g.addColorStop(.6,'rgba(47,123,255,'+(.04+.08*pu)+')');g.addColorStop(1,'rgba(0,229,255,'+(.02+.1*(1-pu))+')');x.fillStyle=g;x.fillRect(120,120,320,320);
+  O.forEach(o=>{const a=o.a+t*o.s,px=C[0]+Math.cos(a)*o.r*(1+.1*Math.sin(t/2200+o.w)),py=C[1]+Math.sin(a*1.3)*o.r*.85,q=o.z*5,al=.3+.3*Math.sin(t/900+o.w),h=x.createRadialGradient(px,py,0,px,py,q);h.addColorStop(0,'hsla('+o.h+',100%,75%,'+al+')');h.addColorStop(1,'hsla('+o.h+',100%,60%,0)');x.fillStyle=h;x.fillRect(px-q,py-q,2*q,2*q)});
+  S.forEach(s=>{const rot=s[0]*Math.PI/180,pos=k=>{const an=t/1000*s[4]+s[3]-k*.09*Math.sign(s[4]),ex=Math.cos(an)*s[1],ey=Math.sin(an)*s[2];return[C[0]+ex*Math.cos(rot)-ey*Math.sin(rot),C[1]+ex*Math.sin(rot)+ey*Math.cos(rot)]};
+   x.strokeStyle='rgba(90,160,255,.07)';x.lineWidth=1;x.beginPath();x.ellipse(C[0],C[1],s[1],s[2],rot,0,6.283);x.stroke();
+   for(let k=7;k>0;k--){const p=pos(k);x.fillStyle='rgba(77,184,255,'+(.4-k*.05)+')';x.beginPath();x.arc(p[0],p[1],3-k*.3,0,6.283);x.fill()}
+   const p=pos(0);x.fillStyle='rgba(120,200,255,.25)';x.beginPath();x.arc(p[0],p[1],11,0,6.283);x.fill();x.fillStyle='#bfe8ff';star(p[0],p[1],6)});
+  x.restore();
+  bolt(18,10,'rgba(47,123,255,'+.4*I+')');bolt(10,4.5,'rgba(0,229,255,'+Math.min(1,.8*I)+')');bolt(5,1.8,'rgba(255,255,255,'+Math.min(1,I)+')');
+  g=x.createRadialGradient(B[0],B[1],0,B[0],B[1],200);g.addColorStop(0,'rgba(255,255,255,'+Math.min(1,I)+')');g.addColorStop(.1,'rgba(210,240,255,'+.8*I+')');g.addColorStop(.32,'rgba(90,170,255,'+.35*I+')');g.addColorStop(1,'rgba(47,123,255,0)');x.fillStyle=g;x.fillRect(B[0]-200,B[1]-200,400,400);
+  g=x.createLinearGradient(B[0]-230,0,B[0]+230,0);g.addColorStop(0,'rgba(90,170,255,0)');g.addColorStop(.5,'rgba(220,245,255,'+.7*I+')');g.addColorStop(1,'rgba(90,170,255,0)');x.fillStyle=g;x.fillRect(B[0]-230,B[1]-2.5,460,5);
+  x.fillStyle='rgba(180,225,255,'+.35*I+')';x.fillRect(B[0]-1.5,B[1]-70,3,140);
+  x.strokeStyle='rgba(200,235,255,'+.45*I+')';x.lineWidth=1.4;for(let i=0;i<7;i++){const a=Math.random()*6.283,l=50+Math.random()*110;x.beginPath();x.moveTo(B[0],B[1]);x.lineTo(B[0]+Math.cos(a)*l,B[1]+Math.sin(a)*l);x.stroke()}
+  [.55,1.1,1.6].forEach((k,i)=>{const fx=B[0]+(C[0]-B[0])*k,fy=B[1]+(C[1]-B[1])*k;x.fillStyle='hsla('+(190+i*40)+',100%,70%,'+.07*I+')';x.beginPath();x.arc(fx,fy,18+i*12,0,6.283);x.fill()});
+  gl.style.opacity=Math.min(1,I*.9);lens.style.filter='brightness('+(1+I*2.6)+')';rim.style.opacity=Math.min(1,I);
+  x.globalCompositeOperation='source-over';if(!rm)requestAnimationFrame(f)}
+ requestAnimationFrame(f)})();
+apply();
+</script>
+</body>
+</html>
